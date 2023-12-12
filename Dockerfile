@@ -1,5 +1,11 @@
 FROM ubuntu:20.04
 
+LABEL org.opencontainers.image.source="https://github.com/tushroy/az-speech-dotnet-docker" \
+      org.opencontainers.image.description="az-speech-dotnet" \
+      org.opencontainers.image.licenses="GPL-3.0-or-later"
+
+ENV HOSTNAME=az-speech-dotnet
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
