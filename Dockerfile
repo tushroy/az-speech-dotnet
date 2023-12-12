@@ -34,6 +34,8 @@ RUN wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf - \
     && ldconfig -v \
     && export SSL_CERT_DIR=/etc/ssl/certs
 
+ENV SSL_CERT_DIR=/etc/ssl/certs
+
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb --no-check-certificate -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
     && rm packages-microsoft-prod.deb
