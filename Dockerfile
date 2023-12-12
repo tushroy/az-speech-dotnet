@@ -52,3 +52,6 @@ RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-p
 RUN apt-get update \
 	&& apt-get install -y dotnet-runtime-8.0 aspnetcore-runtime-8.0 \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN useradd -ms /bin/bash app
+USER app
