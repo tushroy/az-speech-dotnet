@@ -24,11 +24,11 @@ RUN apt-get install -y \
 	
 RUN apt-get install -y \
     build-essential libssl-dev ca-certificates libasound2 wget
-	
 RUN	apt-get install -y \
-    libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
-    gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
-	
+    libgstreamer1.0-0 gstreamer1.0-plugins-base 
+RUN apt-get install -y \
+    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+
 RUN apt-get install -y \
     ffmpeg
 
