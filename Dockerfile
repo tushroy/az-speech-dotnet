@@ -26,14 +26,15 @@ RUN apt-get install -y \
 
 RUN update-ca-certificates
 
-RUN wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf - \
-    && cd openssl-1.1.1u \
-    && ./config --prefix=/usr/local \
+RUN wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf - 
+WORKDIR /openssl-1.1.1u
+RUN ./config --prefix=/usr/local \
     && make -j $(nproc) \
     && make install_sw install_ssldirs \
     && ldconfig -v \
     && export SSL_CERT_DIR=/etc/ssl/certs
-
+WORKDIR /
+RUN rm -rf /openssl-1.1.1u
 ENV SSL_CERT_DIR=/etc/ssl/certs
 
 RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb --no-check-certificate -O packages-microsoft-prod.deb \
